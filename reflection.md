@@ -6,6 +6,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
+  - The hints were not consistent
+    - First bug is that when it should say "higher", it was lower
+    - Second bug is that when it should say "lower", it was actually higher
+  - The new game button does not work. Like when I would run out of guesses, it wouldn't click, and it wouldn't work appropriately 
   (for example: "the secret number kept changing" or "the hints were backwards").
 
 ---
@@ -13,6 +17,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+  I used GitHub Copilot 
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
