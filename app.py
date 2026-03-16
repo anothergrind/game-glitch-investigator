@@ -6,11 +6,12 @@ def get_range_for_difficulty(difficulty: str):
         return 1, 20
     if difficulty == "Normal":
         return 1, 100
+    #FIXME: Hard range was 1-50, narrower than Normal (1-100), making it easier not harder
     if difficulty == "Hard":
-        return 1, 50
+        return 1, 200
     return 1, 100
 
-
+#FIXME: Blank strings are being considered as a guess
 def parse_guess(raw: str):
     if raw is None:
         return False, None, "Enter a guess."
@@ -19,16 +20,16 @@ def parse_guess(raw: str):
         return False, None, "Enter a guess."
 
     try:
+        #FIXME: floats like "3.7" were silently truncated to 3 instead of being rejected
         if "." in raw:
-            value = int(float(raw))
-        else:
-            value = int(raw)
+            return False, None, "That is not a whole number."
+        value = int(raw)
     except Exception:
         return False, None, "That is not a number."
 
     return True, value, None
 
-
+#FIXME: Hints are swapped
 def check_guess(guess, secret):
     if guess == secret:
         return "Win", "🎉 Correct!"
@@ -54,9 +55,8 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
             points = 10
         return current_score + points
 
+    #FIXME: "Too High" on even attempts rewarded +5 points, asymmetric with "Too Low" always deducting 5
     if outcome == "Too High":
-        if attempt_number % 2 == 0:
-            return current_score + 5
         return current_score - 5
 
     if outcome == "Too Low":
@@ -107,8 +107,9 @@ if "history" not in st.session_state:
 
 st.subheader("Make a guess")
 
+#FIXME: info banner hardcoded "1 and 100" instead of using the actual difficulty range
 st.info(
-    f"Guess a number between 1 and 100. "
+    f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
 
@@ -133,7 +134,8 @@ with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
-    st.session_state.attempts = 0
+    #FIXME: new game reset attempts to 0 but initial state starts at 1, causing inconsistent attempt counting
+    st.session_state.attempts = 1
     st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing"
     st.session_state.history = []
@@ -149,14 +151,13 @@ if st.session_state.status != "playing":
     st.stop()
 
 if submit:
-    st.session_state.attempts += 1
-
+    #FIXME: attempts incremented before validation, so invalid inputs consumed an attempt; invalid inputs were also added to history
     ok, guess_int, err = parse_guess(raw_guess)
 
     if not ok:
-        st.session_state.history.append(raw_guess)
         st.error(err)
     else:
+        st.session_state.attempts += 1
         st.session_state.history.append(guess_int)
 
         outcome, message = check_guess(guess_int, st.session_state.secret)
