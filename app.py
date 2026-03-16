@@ -55,7 +55,7 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
             points = 10
         return current_score + points
 
-    #FIXME: "Too High" on even attempts rewarded +5 points, asymmetric with "Too Low" always deducting 5
+    #FIXME: "Too High" on even attempts rewarded +5 points, asymmetric with "Too Low" always deducting 5 (Used Copilot Agent Mode to fix)
     if outcome == "Too High":
         return current_score - 5
 
@@ -77,7 +77,7 @@ difficulty = st.sidebar.selectbox(
     index=1,
 )
 
-#FIXME: Normal and Easy attempt limits are swapped
+#FIXME: Normal and Easy attempt limits are swapped (Used Copilot Agent Mode to fix)
 attempt_limit_map = {
     "Easy": 8,
     "Normal": 6,
@@ -107,7 +107,7 @@ if "history" not in st.session_state:
 
 st.subheader("Make a guess")
 
-#FIXME: info banner hardcoded "1 and 100" instead of using the actual difficulty range
+#FIXME: info banner hardcoded "1 and 100" instead of using the actual difficulty range (Used Claude Code to fix)
 st.info(
     f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
@@ -134,7 +134,7 @@ with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
-    #FIXME: new game reset attempts to 0 but initial state starts at 1, causing inconsistent attempt counting
+    #FIXME: new game reset attempts to 0 but starts at 1, caused inconsistent counting (Used Claude Code to fix)
     st.session_state.attempts = 1
     st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing"
@@ -151,7 +151,7 @@ if st.session_state.status != "playing":
     st.stop()
 
 if submit:
-    #FIXME: attempts incremented before validation, so invalid inputs consumed an attempt; invalid inputs were also added to history
+    #FIXME: attempts incremented before validation, so invalid inputs consumed an attempt; invalid inputs were also added to history (Used Claude Code to fix)
     ok, guess_int, err = parse_guess(raw_guess)
 
     if not ok:

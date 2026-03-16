@@ -25,13 +25,31 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] Describe the game's purpose.
+- [x] Detail which bugs you found.
+- [x] Explain what fixes you applied.
 
+### Game Purpose
+This app is a Streamlit number guessing game where the player selects a difficulty, tries to guess a hidden number within a limited number of attempts, and gets feedback and score updates after each guess.
+
+### Bugs Found
+- The secret number changed randomly in between rounds
+- Hint direction logic was wrong
+- Normal difficulty range was easier than Easy
+- Input handling accepted bad values ("", "letters") in edge cases
+- Scoring behavior for non-winning guesses was inconsistent 
+
+### Fixes Applied
+- Stored game state consistently using Streamlit session state so the secret number remains stable
+- Corrected hint direction logic
+- Fixed difficulty ranges
+- Improved input validation to reject guesses that weren't numbers.
+- Updated score for "Too High" and "Too Low" outcomes and verified score behavior
+- Added tests in `tests/test_game_logic.py` and verified all tests pass with `pytest`
+![tests passing](tests.png)
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [x] [Insert a screenshot of your fixed, winning game here]
 
 ## 🚀 Stretch Features
 
