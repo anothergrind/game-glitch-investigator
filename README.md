@@ -50,6 +50,7 @@ This app is a Streamlit number guessing game where the player selects a difficul
 ## 📸 Demo
 
 - [x] [Insert a screenshot of your fixed, winning game here]
+![fixed game](image.png)
 
 ## 🚀 Stretch Features
 
