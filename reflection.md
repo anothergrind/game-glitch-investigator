@@ -6,10 +6,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
-  - The hints were not consistent
-    - First bug is that when it should say "higher", it was lower
-    - Second bug is that when it should say "lower", it was actually higher
-  - The new game button does not work. Like when I would run out of guesses, it wouldn't click, and it wouldn't work appropriately 
+  The hints were not consistent. Some bugs that I ran into was that when it would say "higher" as a tip, it was actually lower. Another bug I ran into was that when it would say "lower", it was actually higher. The new game button also did not work, as in when I would run out of guesses, and try to restart the game, it didn't work appropriately. The last bug that I noticed was that the number of guesses given for each difficulty did not make any sense, as in you had more guesses if you were on the Normal mode compared to the Easy mode.
+
   (for example: "the secret number kept changing" or "the hints were backwards").
 
 ---
@@ -17,9 +15,11 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
-  I used GitHub Copilot 
+  I used GitHub Copilot and Claude Code
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+  An AI suggestion that was correct was the hints being backwards. The AI suggested that the hint "higher" was actually lower, and the hint "lower" was actually higher. 
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+  Not available. The AI didn't halluncinate on me surprisingly
 
 ---
 
@@ -43,6 +43,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
-  - This could be a testing habit, a prompting strategy, or a way you used Git.
+  hmmm??
 - What is one thing you would do differently next time you work with AI on a coding task?
+  When I am working on AI as a coding task, I want it to act as a junior software engineer, doing majority of the coding, while I focus on the test cases, and ensuring the proposed changes actually work without breaking anything else
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+  You want to verify the logic of what it is actually doing
